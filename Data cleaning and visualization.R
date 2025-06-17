@@ -10,6 +10,9 @@ View(HIV_data_2000_2023)
 ##Loading the neccesary packages
 library(dplyr)
 library(magrittr)
+library(ggplot2)
+library( plotly)
+library(htmlwidgets)
 
 ##Cleaning the value column
 HIV_data_2000_2023$Value <- gsub("^([0-9]+)\\s([0-9]+).*","\\1\\2", HIV_data_2000_2023$Value)
@@ -72,7 +75,9 @@ d <- top_75_2000_2023 %>%
   labs(title = "Trend of HIV cases in the countries contributing to 75% of the burden within each WHO region",
        x = "Year(2000-2023)", y = "Estimated number of people (all ages) living with HIV")
   
-ggplotly(d)
+interactive_plot = ggplotly(d)
+
+saveWidget(interactive_plot,"Trend_of_HIV_cases_in_countries_contributing_to_75%_of_the_global_burden.html")
 
 
 
