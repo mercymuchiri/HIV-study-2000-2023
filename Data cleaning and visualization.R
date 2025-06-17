@@ -23,7 +23,7 @@ HIV_data_2000_2023 = HIV_data_2000_2023[HIV_data_2000_2023$Value != "No data",]
 HIV_data_2000_2023$Value <-  as.numeric(HIV_data_2000_2023$Value)
 
 ##Cleaned dataset
-write.csv(HIV_data_2000_2023,"Cleaned_HIV_data_2000_2023", row.names = FALSE)
+write.csv(HIV_data_2000_2023,"Cleaned_HIV_data_2000_2023.csv", row.names = FALSE)
 Cleaned_HIV_data_2000_2023 = read_csv("C:/Users/!Admin/Desktop/MYPROJECTS/HIV_AIDS/Cleaned_HIV_data_2000_2023")
 View(Cleaned_HIV_data_2000_2023)
 ##Filtering data for 2023
