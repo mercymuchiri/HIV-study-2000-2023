@@ -1,8 +1,10 @@
 #HIV data 2000-2023
+getwd()
+setwd("C:/Users/!Admin/Desktop/MYPROJECTS/HIV_AIDS")
 
 ##Importing the dataset
 library(readr)
-HIV_data_2000_2023 <- read_csv("CEMAproject/Datasets/HIV data 2000-2023.csv")
+HIV_data_2000_2023 <- read_csv("C:/Users/!Admin/Desktop/MYPROJECTS/HIV_AIDS/HIV data 2000-2023.csv")
 View(HIV_data_2000_2023)
 
 ##Loading the neccesary packages
@@ -20,6 +22,10 @@ HIV_data_2000_2023 = HIV_data_2000_2023[HIV_data_2000_2023$Value != "No data",]
 
 HIV_data_2000_2023$Value <-  as.numeric(HIV_data_2000_2023$Value)
 
+##Cleaned dataset
+write.csv(HIV_data_2000_2023,"Cleaned_HIV_data_2000_2023", row.names = FALSE)
+Cleaned_HIV_data_2000_2023 = read_csv("C:/Users/!Admin/Desktop/MYPROJECTS/HIV_AIDS/Cleaned_HIV_data_2000_2023")
+View(Cleaned_HIV_data_2000_2023)
 ##Filtering data for 2023
 hiv_2023 <- filter(HIV_data_2000_2023, Period == 2023)
 View(hiv_2023)
