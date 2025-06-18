@@ -27,7 +27,7 @@ HIV_data_2000_2023$Value <-  as.numeric(HIV_data_2000_2023$Value)
 
 ##Cleaned dataset
 write.csv(HIV_data_2000_2023,"Cleaned_HIV_data_2000_2023.csv", row.names = FALSE)
-Cleaned_HIV_data_2000_2023 = read_csv("C:/Users/!Admin/Desktop/MYPROJECTS/HIV_AIDS/Cleaned_HIV_data_2000_2023")
+Cleaned_HIV_data_2000_2023 = read_csv("C:/Users/!Admin/Desktop/MYPROJECTS/HIV_AIDS/Cleaned_HIV_data_2000_2023.csv")
 View(Cleaned_HIV_data_2000_2023)
 ##Filtering data for 2023
 hiv_2023 <- filter(HIV_data_2000_2023, Period == 2023)
@@ -64,7 +64,9 @@ c <- top_75_2000_2023 %>%
   labs(title = "Trend of HIV cases in the countries that contribute to 75% of the global burden ",
        x = "Year(2000-2023)", y = "Estimated number of people (all ages) living with HIV")
   
-ggplotly(c)
+interactive_plot = ggplotly(c)
+interactive_plot
+saveWidget(interactive_plot,"interactive_plot.html")
 
 ###Trend of HIV cases in the countries contributing to 75% of the burden within each WHO region
 d <- top_75_2000_2023 %>%
@@ -77,7 +79,6 @@ d <- top_75_2000_2023 %>%
   
 interactive_plot = ggplotly(d)
 
-saveWidget(interactive_plot,"Trend_of_HIV_cases_in_countries_contributing_to_75%_of_the_global_burden.html")
 
 
 
