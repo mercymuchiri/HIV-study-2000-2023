@@ -64,9 +64,8 @@ c <- top_75_2000_2023 %>%
   labs(title = "Trend of HIV cases in the countries that contribute to 75% of the global burden ",
        x = "Year(2000-2023)", y = "Estimated number of people (all ages) living with HIV")
   
-interactive_plot = ggplotly(c)
-interactive_plot
-saveWidget(interactive_plot,"interactive_plot.html")
+ggplotly(c)
+htmlwidgets::saveWidget(ggplotly(c),"interactive_plot.html")
 
 ###Trend of HIV cases in the countries contributing to 75% of the burden within each WHO region
 d <- top_75_2000_2023 %>%
